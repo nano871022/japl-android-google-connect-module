@@ -16,7 +16,7 @@ class TaskTest(val context: Context): AsyncTask<Void, Void, Void>(){
     override fun doInBackground(vararg p0: Void?): Void? {
 
         val transport = GoogleNetHttpTransport.newTrustedTransport()
-        val stream = context.resources.openRawResource(R.raw.uralameda181_auth2)
+        val stream = context.resources.openRawResource(R.raw.cralameda181_34c486bb5b56)
         val credentials = GoogleCredentials.fromStream(stream).createScoped(DriveScopes.all())
         val requestInitializer = HttpCredentialsAdapter(credentials)
         val service: Drive = Drive.Builder(transport,

@@ -18,7 +18,7 @@ class TaskTest4(val context: Context): AsyncTask<Void, Void, Void>(){
         val packageName = "co.com.alameda181.unidadresidencialalameda181"
 
         val transport = NetHttpTransport.Builder().build()
-        val stream = context.resources.openRawResource(R.raw.credentials)
+        val stream = context.resources.openRawResource(R.raw.cralameda181_34c486bb5b56)
         val jsonFactory = JacksonFactory.getDefaultInstance()
         //val serviceAccountKeyStream = resources.openRawResource(resources.getIdentifier(JSON_FILE_PATH,"raw",packageName))
         val serviceAccountKey = GoogleCredentials.fromStream(stream)
