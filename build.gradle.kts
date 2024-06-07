@@ -15,6 +15,7 @@ android {
 
         buildConfigField("String", "GOOGLE_APPLICATION_CREDENTIALS", project.findProperty("GOOGLE_APPLICATION_CREDENTIALS")?.toString() ?: "")
         buildConfigField("String", "FOLDER_ID", project.findProperty("FOLDER_ID")?.toString() ?: "")
+        buildConfigField("String", "FOLDER_ID_DOC", project.findProperty("FOLDER_ID_DOC")?.toString() ?: "")
         buildConfigField("String", "URL_INITIAL", project.findProperty("URL_INITIAL")?.toString() ?: "")
         buildConfigField("String", "APPLICATION_NAME", project.findProperty("APPLICATION_NAME")?.toString() ?: "")
         buildConfigField("String", "MIME_TYPE_IMAGE", project.findProperty("MIME_TYPE_IMAGE")?.toString() ?: "")

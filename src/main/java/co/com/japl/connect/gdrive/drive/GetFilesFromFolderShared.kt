@@ -25,8 +25,13 @@ class GetFilesFromFolderShared(val context:Context) {
     private val URL_INITIAL = BuildConfig.URL_INITIAL
 
     fun execute(@RawRes resId:Int = R.raw.cralameda181_34c486bb5b56, folder:String = FOLDER_ID):List<DriveFile>?{
-        val response = CompletableFuture.supplyAsync(){ getFiles(resId,folder) }
-        return response.get()
+        try {
+            val response = CompletableFuture.supplyAsync() { getFiles(resId, folder) }
+            return response.get()
+        }catch(e:Exception){
+            Log.e("GetFilesFromFolderShared","Issue",e)
+            return null
+        }
     }
 
     fun downloadFile(idFile:String,@RawRes resId:Int = R.raw.cralameda181_34c486bb5b56, folder:String = FOLDER_ID):File?{
@@ -35,7 +40,7 @@ class GetFilesFromFolderShared(val context:Context) {
     }
 
     private fun getFiles(@RawRes resId: Int, folder:String):List<DriveFile>?{
-        Log.d("TaskTest6","<<<=== START:TaskTest6#doInBackground read files  $APPLICATION_NAME $MIME_TYPE_IMAGE $FOLDER_ID $URL_INITIAL")
+        Log.d("TaskTest6","<<<=== START:TaskTest6#doInBackground read files  $APPLICATION_NAME $MIME_TYPE_IMAGE $folder $URL_INITIAL")
         val credentials = getCredentials(resId)
         val drive = getDriveConnection(credentials)
         val result = getListFiles(drive,folder)
